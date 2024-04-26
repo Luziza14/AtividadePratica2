@@ -21,7 +21,7 @@ public class Sistema {
         String nomeCliente;
         int id;
         int idSala;
-        int data;
+        String data;
         int hora;
 
         switch (op) {
@@ -46,16 +46,29 @@ public class Sistema {
             case 2:
 
                 System.out.println("\nEscolha o filme ");
+
                 System.out.print("Nome do filme: ");
                 nome = Console.lerString();
 
-                System.out.print("Digite o número da Sala");
+                System.out.println("Gênero do filme: ");
+                genero = Console.lerString();
+
+                System.out.println("Id do filme: ");
+                id = Console.lerInt();
+
+                System.out.println("Data do filme: ");
+                data = Console.lerString();
+
+                System.out.print("Digite o id da Sala");
                 idSala = Console.lerInt();
+
+                System.out.println("Digite o nome do Cliente: ");
+                nomeCliente = Console.lerString();
 
                 System.out.print("Diga a hora");
                 hora = Console.lerInt();
 
-                Cliente c = new Cliente(idSala, nome, hora);
+                Cliente c = new Cliente(String nome, String genero, int id, String data, int idSala, int hora, String nomeCliente);
 
                 Cadastro.cadastrar(g);
 

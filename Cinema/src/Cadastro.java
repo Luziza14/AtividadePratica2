@@ -19,7 +19,7 @@ public static Filme buscar(String nome){
 
     for(Filme fil : listaSessao){
 
-        if (temp.getNome() == nome){
+        if (fil.getNome() == nome){
 
             return fil;
         }
@@ -28,4 +28,31 @@ public static Filme buscar(String nome){
 
     return null;
 }
+
+
+public static void removerFilme(Filme filme) {
+    if (listaSessao.contains(filme)) {
+      listaSessao.remove(filme);
+    } else {
+      System.out.println("Filme não encontrado na lista.");
+    }
+  }
+
+
+public static void ExcluirLista()
+    {
+
+        listaSessao.clear();
+
+    }
+
+public static void excluir(Filme f) {
+        listaSessao.remove(f);
+    }
+
+
+
+
+
+
 }

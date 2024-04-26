@@ -1,22 +1,22 @@
 public class Sala extends Registro{
 
-    private int data;
+    private String data;
     private int idSala;
     private int hora;
     
     public Sala() {
 
     }
-    public Sala(String nome, String genero, int id, int data, int idSala, int hora) {
+    public Sala(String nome, String genero, int id, String data, int idSala, int hora) {
         super(nome, genero, id);
         this.data = data;
         this.idSala = idSala;
         this.hora = hora;
     }
-    public int getData() {
+    public String getData() {
         return data;
     }
-    public void setData(int data) {
+    public void setData(String data) {
         this.data = data;
     }
     public int getIdSala() {

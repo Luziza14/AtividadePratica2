@@ -6,7 +6,7 @@ public class Cliente extends Sala{
     public Cliente() {
     }
         
-    public Cliente(String nome, String genero, int id, int data, int idSala, int hora, String nomeCliente) {
+    public Cliente(String nome, String genero, int id, String data, int idSala, int hora, String nomeCliente) {
         super(nome, genero, id, data, idSala, hora);
         this.nomeCliente = nomeCliente;
     }
