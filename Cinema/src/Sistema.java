@@ -7,7 +7,7 @@ public class Sistema {
         System.out.println("2) Gerar Ingresso");
         System.out.println("3) Listar Filmes Cadastrados");
         System.out.println("4) Buscar Filme");
-        System.out.println("5) Excluir Filme catalogado");
+        System.out.println("5) Excluir um filme no catálago");
         System.out.println("6) Exclusão Total");
         System.out.println("0) Sair");
         System.out.print("Selecione uma das opções: ");
@@ -59,7 +59,6 @@ public class Sistema {
                 idSala = Console.lerInt();
 
 
-
                 System.out.print("Diga a hora");
                 hora = Console.lerString();
 
@@ -96,23 +95,48 @@ public class Sistema {
 
                 System.out.println("\nBuscar Filme:");
 
-                // Se o tamanho da lista for igual a 0 (zero)
-                if (Cadastro.getListaFuncionarios().size() == 0) {
+                System.out.print("Nome do Filme: ");
+                id = Console.lerInt();
 
-                    System.out.println("\nNão há fucionários cadastrados...");
-                    return; // finaliza o método
+                
+                Filme r = Cadastro.buscar(nome);
 
+                if (r != null) {
+
+                System.out.println("\nFilme encontrado:");
+                System.out.println(r.toString());
+                return;
+
+}
+
+                break;
+                
+            case 5:
+
+                System.out.print("\nInforme a matricula do func. que deseja excluir: ");
+                int matricula = Console.lerInt();
+        
+                Funcionario f2 = Cadastro.buscar(matricula);
+        
+                if (f2 == null) {
+                    System.out.println("\nFuncionário " + matricula + " não foi encontrado");
+                    return;
                 }
-
-                // caso contrário, percorre a lista e msotra os funcionarios um a um
-                for (Funcionario temp : Cadastro.getListaFuncionarios()) {
-
-                    System.out.println(temp.toString());
-
-                }
+        
+                Cadastro.excluir(f2);
+        
+                System.out.println("\nFuncionário excluído com sucesso!");
 
                 break;
 
+            case 6:
+
+            Cadastro.excluirLista();
+        
+
+                break;
+
+                
             case 0:
 
                 System.out.println("\nO programa foi finalizado...");
@@ -125,18 +149,8 @@ public class Sistema {
         }
 
     }
-
-    public static void executar() {
-
-        int op;
-        do {
-
-            exibirMenu();
-            op = Console.lerInt();
-            verificarOpcao(op);
-
-        } while (op != 0);
-
-    }
-
 }
+
+
+
+

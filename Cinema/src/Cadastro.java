@@ -38,7 +38,7 @@ public static void removerFilme(Filme filme) {
   }
 
 
-public static void ExcluirLista()
+public static void excluirLista()
     {
 
         listaSessao.clear();
@@ -46,6 +46,7 @@ public static void ExcluirLista()
     }
 
 public static void excluir(Filme f) {
+    
         listaSessao.remove(f);
     }
 
