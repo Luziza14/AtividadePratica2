@@ -37,10 +37,11 @@ public class Sistema {
                 System.out.print("Gênero: ");
                 genero = Console.lerString();
 
-                Filme f = new Filme(genero, nome);
+                Filme f = new Filme(nome, genero);
+               
 
                 Cadastro.cadastrar(f);
-
+               
                 System.out.println("Filme cadastrado");
 
                 break;
@@ -70,20 +71,22 @@ public class Sistema {
                 System.out.print("Digite o id do filme");
                 id = Console.lerInt();                
                 
-                System.out.print("Diga a hora");
+                System.out.print("Diga a data");
                 data = Console.lerString();
 
                Cliente c = new Cliente(nome, genero, id, data, idSala, hora, nomeCliente);
 
                 Cadastro.cadastrar(c);
 
-                System.out.println("\nFilme selecionado com Sucesso");
-
+                System.out.println("\nBilhete gerado com sucesso :) ");
+                System.out.println("\nNome: " + nomeCliente + "\nFilme escolhido " + nome + "\nGenero do Filme " + genero + "\nData: " + data + "Hora: " + hora + "\nSala de Exibição " + idSala );
                 break;
 
             case 3:
 
                 System.out.println("\nListar Filmes Cadastrados");
+
+                
 
                 if (Cadastro.getlistaSessao().size() == 0) {
 
@@ -122,9 +125,11 @@ public class Sistema {
             case 5:
 
                 System.out.print("\nInforme um filme que deseja excluir: ");
-                nome= Console.lerString();
-        
+                nome = Console.lerString();
+    
                 Filme f3 = Cadastro.buscar(nome);
+
+               
         
                 if (f3 == null) {
                     System.out.println("\nFilme " + nome + " não existe");
@@ -133,13 +138,14 @@ public class Sistema {
         
                 Cadastro.excluir(f3);
         
-                System.out.println("\nFilme retirado de cartaz");
-
-                break;
+                System.out.println("\nFilme removido de cartaz");
+                
+                 break;
 
             case 6:
 
             Cadastro.excluirLista();
+            System.out.println("Exclusão total de registro ");
         
 
                 break;
@@ -147,12 +153,12 @@ public class Sistema {
                 
             case 0:
 
-                System.out.println("\nO programa foi finalizado...");
+                System.out.println("\nO programa foi finalizado");
                 break;
 
             default:
 
-                System.out.println("\nOpção inválida. Digite novamente.");
+                System.out.println("\nOpção inválida");
                 break;
         }
 
