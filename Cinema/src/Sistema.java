@@ -3,17 +3,18 @@ public class Sistema {
     private static void exibirMenu() {
 
         System.out.println("\nFUNCIONARIO SYSTEM");
-        System.out.println("1) Adicionar Filme");
-        System.out.println("2) Cadastrar Gerente");
-        System.out.println("3) Procurar Funcionario");
-        System.out.println("4) Listar Todos");
+        System.out.println("1) Registrar Filme no Catálogo");
+        System.out.println("2) Gerar Ingresso");
+        System.out.println("3) Listar Filmes Cadastrados");
+        System.out.println("4) Buscar Filme");
+        System.out.println("5) Excluir Filme catalogado");
+        System.out.println("6) Exclusão Total");
         System.out.println("0) Sair");
-        System.out.print("Informe uma opção: ");
+        System.out.print("Selecione uma das opções: ");
 
     }
 
     private static void verificarOpcao(int op) {
-
 
         String nome;
         String genero;
@@ -23,15 +24,14 @@ public class Sistema {
         int data;
         int hora;
 
-
-
         switch (op) {
             case 1:
 
-                System.out.println("\nFilme novo em cartaz:");
+                System.out.println("\nAdicione o nome do Filme:");
                 System.out.print("Filme: ");
                 nome = Console.lerString();
 
+                System.out.println("\nAdicione o gênero do Filme:");
                 System.out.print("Gênero: ");
                 genero = Console.lerString();
 
@@ -39,23 +39,23 @@ public class Sistema {
 
                 Cadastro.cadastrar(f);
 
-                System.out.println("");
+                System.out.println("Filme cadastrado");
 
                 break;
 
             case 2:
 
-                System.out.println("\nNovo Gerente:");
-                System.out.print("Matrícula: ");
-                matricula = Console.lerInt();
-
-                System.out.print("Nome: ");
+                System.out.println("\nEscolha o filme ");
+                System.out.print("Nome do filme: ");
                 nome = Console.lerString();
 
-                System.out.print("Projeto que gerencia:");
-                nomeProjeto = Console.lerString();
+                System.out.print("Digite o número da Sala");
+                idSala = Console.lerInt();
 
-                Gerente g = new Gerente(matricula, nome, nomeProjeto);
+                System.out.print("Diga a hora");
+                hora = Console.lerInt();
+
+                Cliente c = new Cliente(idSala, nome, hora);
 
                 Cadastro.cadastrar(g);
 
