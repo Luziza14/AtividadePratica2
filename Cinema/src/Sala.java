@@ -32,14 +32,14 @@ public class Sala extends Registro{
         this.hora = hora;
     }
 
-    @Override
 
     @Override
     public String toString() {
         
-        return super.toString() + "A sala de exibição do Filme " + nome + "é a Sala " +idSala;
+        return super.toString() + "A sala de exibição do Filme é a Sala " +idSala;
     }
 
 
     
 }
+
