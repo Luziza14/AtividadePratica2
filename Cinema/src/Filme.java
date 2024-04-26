@@ -31,7 +31,7 @@ public class Filme {
     @Override
     public String toString(){
 
-        return "Filme em cartaz: " + nome + "\n Gênero: " + genero;
+        return "\nFilme em cartaz: " + nome + "\n Gênero: " + genero;
     }
 
 

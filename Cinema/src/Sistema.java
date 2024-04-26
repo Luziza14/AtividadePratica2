@@ -3,18 +3,20 @@ public class Sistema {
     private static void exibirMenu() {
 
         System.out.println("\nFUNCIONARIO SYSTEM");
-        System.out.println("1) Registrar Filme no Catálogo");
+        System.out.println("1) Registrar Filme no Catalogo");
         System.out.println("2) Gerar Ingresso");
         System.out.println("3) Listar Filmes Cadastrados");
         System.out.println("4) Buscar Filme");
-        System.out.println("5) Excluir um filme no catálago");
-        System.out.println("6) Exclusão Total");
+        System.out.println("5) Excluir um filme no catalago");
+        System.out.println("6) Exclusao Total");
         System.out.println("0) Sair");
-        System.out.print("Selecione uma das opções: ");
+        System.out.print("Selecione uma das opcões: ");
 
     }
 
     private static void verificarOpcao(int op) {
+
+    
 
         String nome;
         String genero;
@@ -62,7 +64,14 @@ public class Sistema {
                 System.out.print("Diga a hora");
                 hora = Console.lerString();
 
+                System.out.println("Diga o gênero do filme");
+                genero = Console.lerString();
                 
+                System.out.print("Digite o id do filme");
+                id = Console.lerInt();                
+                
+                System.out.print("Diga a hora");
+                data = Console.lerString();
 
                Cliente c = new Cliente(nome, genero, id, data, idSala, hora, nomeCliente);
 
@@ -96,36 +105,35 @@ public class Sistema {
                 System.out.println("\nBuscar Filme:");
 
                 System.out.print("Nome do Filme: ");
-                id = Console.lerInt();
+                nome = Console.lerString();
 
                 
-                Filme r = Cadastro.buscar(nome);
+                Filme f2 = Cadastro.buscar(nome);
 
-                if (r != null) {
+                if (f2 != null) {
 
                 System.out.println("\nFilme encontrado:");
-                System.out.println(r.toString());
+                System.out.println(f2.toString());
                 return;
-
-}
+                }
 
                 break;
                 
             case 5:
 
-                System.out.print("\nInforme a matricula do func. que deseja excluir: ");
-                int matricula = Console.lerInt();
+                System.out.print("\nInforme um filme que deseja excluir: ");
+                nome= Console.lerString();
         
-                Funcionario f2 = Cadastro.buscar(matricula);
+                Filme f3 = Cadastro.buscar(nome);
         
-                if (f2 == null) {
-                    System.out.println("\nFuncionário " + matricula + " não foi encontrado");
+                if (f3 == null) {
+                    System.out.println("\nFilme " + nome + " não existe");
                     return;
                 }
         
-                Cadastro.excluir(f2);
+                Cadastro.excluir(f3);
         
-                System.out.println("\nFuncionário excluído com sucesso!");
+                System.out.println("\nFilme retirado de cartaz");
 
                 break;
 
@@ -149,6 +157,20 @@ public class Sistema {
         }
 
     }
+
+    public static void executar() {
+
+        int op;
+        do {
+
+            exibirMenu();
+            op = Console.lerInt();
+            verificarOpcao(op);
+
+        } while (op != 0);
+
+    }   
+    
 }
 
 
