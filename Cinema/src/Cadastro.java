@@ -35,7 +35,6 @@ public static void removerFilme(Filme filme) {
     } else {
       System.out.println("Filme não encontrado na lista.");
     }
-
   }
 
 
