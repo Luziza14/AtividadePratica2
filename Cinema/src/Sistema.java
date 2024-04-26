@@ -21,13 +21,13 @@ public class Sistema {
         String nomeCliente;
         int id;
         int idSala;
-        int data;
-        int hora;
+        String data;
+        String hora;
 
         switch (op) {
             case 1:
 
-                System.out.println("\nAdicione o nome do Filme:");
+                System.out.println("\nADICIONE UM FILME");
                 System.out.print("Filme: ");
                 nome = Console.lerString();
 
@@ -45,52 +45,56 @@ public class Sistema {
 
             case 2:
 
-                System.out.println("\nEscolha o filme ");
-                System.out.print("Nome do filme: ");
+                System.out.println("\nESCOLHA O FILME");
+
+                System.out.println("Informe seu nome");
+                nomeCliente = Console.lerString();
+
+
+                System.out.print("Informe o nome do filme escolhido: ");
                 nome = Console.lerString();
 
-                System.out.print("Digite o número da Sala");
+
+                System.out.print("\nDigite o número da Sala:");
                 idSala = Console.lerInt();
 
+
+
                 System.out.print("Diga a hora");
-                hora = Console.lerInt();
+                hora = Console.lerString();
 
-                Cliente c = new Cliente(idSala, nome, hora);
+                
 
-                Cadastro.cadastrar(g);
+               Cliente c = new Cliente(nome, genero, id, data, idSala, hora, nomeCliente);
 
-                System.out.println("\nGerente cadastrado com sucesso!");
+                Cadastro.cadastrar(c);
+
+                System.out.println("\nFilme selecionado com Sucesso");
 
                 break;
 
             case 3:
 
-                System.out.println("\nProcurar Funciomário:");
+                System.out.println("\nListar Filmes Cadastrados");
 
-                System.out.print("Matrícula: ");
-                matricula = Console.lerInt();
+                if (Cadastro.getlistaSessao().size() == 0) {
 
-                // enviar a matricula digitada como parametro para o
-                // metodo buscar da classe Cadastro.
-                // Este método retornará ou um objeto do tipo Funcinario,
-                // ou null, se não encontrar funcionario com a mesma matricula informada
-                Funcionario f = Cadastro.buscar(matricula);
-
-                if (f != null) {
-
-                    System.out.println("\nFuncionário Localizado:");
-                    System.out.println(f.toString());
-                    return;
+                    System.out.println("\nSem filmes em cartaz");
+                    return; 
 
                 }
 
-                System.out.println("\nFuncionário " + matricula + " não foi encontrado");
+                for (Filme fil : Cadastro.getlistaSessao()) {
+
+                    System.out.println(fil.toString());
+
+                }
 
                 break;
 
             case 4:
 
-                System.out.println("\nTodos os funcionários Cadastrados:");
+                System.out.println("\nBuscar Filme:");
 
                 // Se o tamanho da lista for igual a 0 (zero)
                 if (Cadastro.getListaFuncionarios().size() == 0) {

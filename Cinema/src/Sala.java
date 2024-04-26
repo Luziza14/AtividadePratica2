@@ -1,22 +1,22 @@
 public class Sala extends Registro{
 
-    private int data;
+    private String data;
     private int idSala;
-    private int hora;
+    private String hora;
     
     public Sala() {
 
     }
-    public Sala(String nome, String genero, int id, int data, int idSala, int hora) {
+    public Sala(String nome, String genero, int id, String data, int idSala, String hora) {
         super(nome, genero, id);
         this.data = data;
         this.idSala = idSala;
         this.hora = hora;
     }
-    public int getData() {
+    public String getData() {
         return data;
     }
-    public void setData(int data) {
+    public void setData(String data) {
         this.data = data;
     }
     public int getIdSala() {
@@ -25,10 +25,10 @@ public class Sala extends Registro{
     public void setIdSala(int idSala) {
         this.idSala = idSala;
     }
-    public int getHora() {
+    public String getHora() {
         return hora;
     }
-    public void setHora(int hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 
@@ -36,7 +36,7 @@ public class Sala extends Registro{
     @Override
     public String toString() {
         
-        return super.toString() + "A sala de exibição do Filme é a Sala " +idSala;
+        return super.toString() + "A sala de exibição do Filme "+ getNome() +"é a Sala " +idSala;
     }
 
 
