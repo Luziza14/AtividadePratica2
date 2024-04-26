@@ -1,34 +1,32 @@
 public class Cliente extends Sala{
 
+    private String nomeCliente;
+
+
+    public Cliente() {
+    }
+        
+    public Cliente(String nome, String genero, int id, int data, int idSala, int hora, String nomeCliente) {
+        super(nome, genero, id, data, idSala, hora);
+        this.nomeCliente = nomeCliente;
+    }
     
-
-        String nomeCliente;
-        
-    
-        
-            public Cliente() {
-            }
-        
-            public Cliente (String nomeCliente, String nome, int id, int idSala) {
-                super(nome,id,idSala);
-                this.nomeCliente = nomeCliente;
-            }
         
 
-            public String getNomeCliente() {
-                return nomeCliente;
-            }
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
 
-            public void setNomeCliente(String nomeCliente) {
-                this.nomeCliente = nomeCliente;
-            }
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
 
-            @Override
-            public String toString() {
+    @Override
+    public String toString() {
         
-                return super.toString() +
-                        "\nNome do projeto: " + nomeCliente;
-            }
+        return super.toString() + "\nCliente: " + nomeCliente;
+    }
 
         
-        }
+}
+
